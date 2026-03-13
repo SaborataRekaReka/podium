@@ -1,0 +1,545 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cordiant Podium | Летний спецпроект</title>
+    <meta
+      name="description"
+      content="Имиджево-продуктовый спецпроект Cordiant: бренд, летняя линейка шин, технологии, инженерная база и 5 причин купить."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cordiant Podium | Летний спецпроект" />
+    <meta
+      property="og:description"
+      content="Летние шины Cordiant: обзор линейки, технологии, материалы и аргументы доверия в формате scroll-story."
+    />
+    <meta property="og:image" content="assets/img/hero-tire.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+
+    <main id="main-content">
+      <section class="section cordiant-hero" id="hero" aria-label="Первый экран Cordiant">
+        <div class="cordiant-hero__container">
+          <header class="cordiant-hero__header">
+            <div class="cordiant-hero__logo">
+              <img src="assets/icons/logo-brand.svg" alt="Cordiant" width="164" height="32" loading="eager" />
+            </div>
+
+            <nav class="cordiant-hero__nav" aria-label="Навигация первого экрана">
+              <a class="cordiant-hero__nav-link" href="#about">О бренде</a>
+              <a class="cordiant-hero__nav-link" href="#technologies">Технологии</a>
+              <a class="cordiant-hero__nav-link" href="#summer">Шины</a>
+              <a class="cordiant-hero__nav-link" href="#reasons">Преимущества</a>
+            </nav>
+
+            <button class="cordiant-hero__quiz" type="button">Пройти квиз</button>
+          </header>
+
+          <div class="cordiant-hero__content">
+            <p class="cordiant-hero__subtitle">Шины Cordiant</p>
+            <h1 class="cordiant-hero__title">
+              <span class="cordiant-hero__title-major">ВСТРЕЧАЙТЕ НА ПОДИУМЕ</span>
+            </h1>
+            <p class="cordiant-hero__description">
+              Tour, Comfort 2, Sport 3, Off Road, Off Road 2, Gravity, Gravity SUV, All Terrain, Road Runner
+            </p>
+            <a class="cordiant-hero__more" href="#about">Подробнее</a>
+          </div>
+
+          <p class="cordiant-hero__legal">Реклама, АО "Кордиант", ИНН 7601001509</p>
+        </div>
+      </section>
+
+      <section class="section section--brand" id="about">
+        <div class="container">
+          <article class="milestones-screen" data-reveal>
+            <div class="milestones-screen__inner">
+              <nav class="milestones-tabs" data-tab-group="brand-story" role="tablist" aria-label="Разделы о бренде">
+                <button class="milestones-tab is-active" type="button" role="tab" aria-selected="true" data-tab="brand">
+                  О бренде
+                </button>
+                <button class="milestones-tab" type="button" role="tab" aria-selected="false" data-tab="milestones">
+                  Вехи истории
+                </button>
+                <button class="milestones-tab" type="button" role="tab" aria-selected="false" data-tab="symbolism">
+                  Символика 
+                </button>
+                <button class="milestones-tab" type="button" role="tab" aria-selected="false" data-tab="testing">
+                  Испытания
+                </button>
+                <button class="milestones-tab" type="button" role="tab" aria-selected="false" data-tab="rnd">
+                  Исследования
+                </button>
+                <button class="milestones-tab" type="button" role="tab" aria-selected="false" data-tab="lab">
+                  Контроль
+                </button>
+                <button class="milestones-tab" type="button" role="tab" aria-selected="false" data-tab="advantages">
+                  Преимущества
+                </button>
+              </nav>
+
+              <div class="milestones-panels">
+                <section class="milestones-panel is-active" data-panel-group="brand-story" data-panel="brand" role="tabpanel"></section>
+                <section class="milestones-panel" data-panel-group="brand-story" data-panel="milestones" role="tabpanel" hidden>
+                  <ol class="timeline" id="brand-timeline"></ol>
+                </section>
+                <section class="milestones-panel" data-panel-group="brand-story" data-panel="symbolism" role="tabpanel" hidden></section>
+                <section class="milestones-panel" data-panel-group="brand-story" data-panel="testing" role="tabpanel" hidden></section>
+                <section class="milestones-panel" data-panel-group="brand-story" data-panel="rnd" role="tabpanel" hidden></section>
+                <section class="milestones-panel" data-panel-group="brand-story" data-panel="lab" role="tabpanel" hidden></section>
+                <section class="milestones-panel" data-panel-group="brand-story" data-panel="advantages" role="tabpanel" hidden></section>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--summer-podium" id="summer">
+        <div class="container">
+          <div class="summer-podium" data-reveal>
+            <h2 class="section-heading">Идеально для лета</h2>
+            <p class="summer-podium__intro">
+              Модели
+              <span class="summer-podium__models" data-summer-models aria-label="Список моделей шин"></span>
+              отличает широкая адаптация под климатические и дорожные условия России.
+            </p>
+
+            <article class="summer-podium__card" data-summer-card>
+              <figure class="summer-podium__media">
+                <img src="assets/img/hero-tire.svg" data-summer-image alt="" width="420" height="420" loading="lazy" />
+              </figure>
+
+              <div class="summer-podium__body">
+                <h3 data-summer-title></h3>
+                <div class="summer-podium__chips" data-summer-chips></div>
+                <p class="summer-podium__lead" data-summer-lead></p>
+              </div>
+
+              <div class="summer-podium__desc" data-summer-desc>
+                <button
+                  class="summer-podium__more"
+                  type="button"
+                  data-summer-more
+                  aria-expanded="false"
+                  aria-controls="summer-expanded"
+                  hidden
+                >
+                  еще
+                </button>
+              </div>
+
+              <figure class="summer-podium__photo">
+                <img src="assets/img/hero/Подиум Кордиант 2026/5 блок/основная.jpg" data-summer-photo alt="" width="1280" height="720" loading="lazy" />
+              </figure>
+
+              <div class="summer-podium__nav" aria-label="Переключение моделей">
+                <button class="summer-podium__nav-btn summer-podium__nav-btn--arrow" type="button" data-summer-prev aria-label="Предыдущая модель">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0L64 78.344l37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40C66.047 87.609 65.023 88 64 88z"></path>
+                  </svg>
+                </button>
+                <div class="summer-podium__dots" data-summer-dots aria-label="Пагинация моделей"></div>
+                <button class="summer-podium__nav-btn summer-podium__nav-btn--arrow" type="button" data-summer-next aria-label="Следующая модель">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64 88c-1.023 0-2.047-.391-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0L64 78.344l37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40C66.047 87.609 65.023 88 64 88z"></path>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <div class="summer-podium__expanded" id="summer-expanded" data-summer-expanded hidden>
+              <div class="summer-podium__expanded-columns" data-summer-expanded-columns></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cordiant-accordion" id="technologies-accordion">
+        <div class="cordiant-accordion__container" data-reveal>
+          <h2 class="section-heading cordiant-accordion__title">Технологии</h2>
+
+          <div class="cordiant-accordion-carousel" data-cordiant-accordion-carousel-root>
+            <div class="cordiant-accordion-carousel__head">
+              <div class="cordiant-accordion-carousel__nav" aria-label="Управление каруселью технологий">
+                <button
+                  class="cordiant-accordion-carousel__nav-btn"
+                  type="button"
+                  data-cordiant-accordion-carousel-prev
+                  aria-label="Предыдущий слайд"
+                ></button>
+                <button
+                  class="cordiant-accordion-carousel__nav-btn"
+                  type="button"
+                  data-cordiant-accordion-carousel-next
+                  aria-label="Следующий слайд"
+                ></button>
+              </div>
+            </div>
+
+            <div
+              class="cordiant-accordion-carousel__viewport"
+              data-cordiant-accordion-carousel-viewport
+              tabindex="0"
+              aria-label="Карусель технологий"
+            >
+              <div class="cordiant-accordion-carousel__track" data-cordiant-accordion-carousel-track></div>
+            </div>
+
+            <div class="cordiant-accordion-carousel__pagination" data-cordiant-accordion-carousel-pagination></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cordiant-adapt" id="russia">
+        <div class="cordiant-adapt__container" data-cordiant-adapt data-reveal>
+          <h2 class="section-heading cordiant-adapt__title">
+            Приспособленность к российским
+            <br />
+            условиям эксплуатации
+          </h2>
+
+          <p class="cordiant-adapt__lead">
+            Шины Cordiant проектируются с учетом российских реалий. Не всегда хорошее состояние дорог
+            <span class="cordiant-adapt__inline-dot" data-cordiant-adapt-hotspot-wrap>
+              <button
+                type="button"
+                class="cordiant-adapt__dot"
+                data-cordiant-adapt-hotspot="roads"
+                aria-label="Состояние дорог"
+              ></button>
+              <span class="cordiant-adapt__tooltip" role="tooltip" hidden></span>
+            </span>
+            большие расстояния
+            <span class="cordiant-adapt__inline-dot" data-cordiant-adapt-hotspot-wrap>
+              <button
+                type="button"
+                class="cordiant-adapt__dot"
+                data-cordiant-adapt-hotspot="distance"
+                aria-label="Большие расстояния"
+              ></button>
+              <span class="cordiant-adapt__tooltip" role="tooltip" hidden></span>
+            </span>
+            резкие перепады температур
+            <span class="cordiant-adapt__inline-dot" data-cordiant-adapt-hotspot-wrap>
+              <button
+                type="button"
+                class="cordiant-adapt__dot"
+                data-cordiant-adapt-hotspot="temperature"
+                aria-label="Перепады температур"
+              ></button>
+              <span class="cordiant-adapt__tooltip" role="tooltip" hidden></span>
+            </span>
+            а также разнообразие климатических зон
+            <span class="cordiant-adapt__inline-dot" data-cordiant-adapt-hotspot-wrap>
+              <button
+                type="button"
+                class="cordiant-adapt__dot"
+                data-cordiant-adapt-hotspot="climate"
+                aria-label="Климатические зоны"
+              ></button>
+              <span class="cordiant-adapt__tooltip" role="tooltip" hidden></span>
+            </span>
+            — все это учитывается при разработке новинок бренда.
+          </p>
+
+          <div class="cordiant-adapt__content">
+            <div class="cordiant-adapt__left">
+              <div class="cordiant-adapt-tabs" role="tablist" aria-label="Разделы адаптации шин Cordiant">
+                <button
+                  class="cordiant-adapt-tab is-active"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  data-cordiant-adapt-tab="compound"
+                >
+                  Состав
+                </button>
+                <span class="cordiant-adapt-tabs__slash" aria-hidden="true">/</span>
+                <button
+                  class="cordiant-adapt-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-cordiant-adapt-tab="tread"
+                >
+                  Рисунок
+                </button>
+                <span class="cordiant-adapt-tabs__slash" aria-hidden="true">/</span>
+                <button
+                  class="cordiant-adapt-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-cordiant-adapt-tab="material"
+                >
+                  Материал
+                </button>
+              </div>
+
+              <div class="cordiant-adapt-panels">
+                <div class="cordiant-adapt-panel is-active" data-cordiant-adapt-panel="compound" role="tabpanel">
+                  <p>
+                    В составе резиновой смеси используются силикон-содержащие полимеры для улучшения характеристик
+                    сцепления на мокрой и заснеженной дороге. Для повышения износостойкости и увеличения срока службы
+                    шин включаются карбонатные добавки.
+                  </p>
+                </div>
+                <div class="cordiant-adapt-panel" data-cordiant-adapt-panel="tread" role="tabpanel" hidden>
+                  <p>
+                    Рисунок протектора оптимизируется для различных погодных условий и типов дорожного покрытия.
+                    Использование асимметричного и направленного дизайна протектора помогает улучшить управляемость,
+                    стабильность на скорости и эффективность отвода воды.
+                  </p>
+                </div>
+                <div class="cordiant-adapt-panel" data-cordiant-adapt-panel="material" role="tabpanel" hidden>
+                  <p>
+                    Применение стальных кордов и специализированных текстильных материалов укрепляет боковины и
+                    снижает риск порезов и разрывов. Инновационная система укладки слоев повышает общую прочность и
+                    долговечность шин в российских условиях эксплуатации.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="cordiant-adapt__right">
+              <img
+                src="assets/img/hero/%D0%9F%D0%BE%D0%B4%D0%B8%D1%83%D0%BC%20%D0%9A%D0%BE%D1%80%D0%B4%D0%B8%D0%B0%D0%BD%D1%82%202026/4%20%D0%B1%D0%BB%D0%BE%D0%BA/%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B5-%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B8.jpg"
+                alt="Автомобиль Cordiant на пересеченной дороге с водой"
+                width="1280"
+                height="720"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cordiant-tech" id="technologies">
+        <div class="cordiant-tech__container">
+          <div class="cordiant-tech__intro" data-reveal>
+            <h2 class="section-heading">Из чего сделаны шины Cordiant</h2>
+            <p class="cordiant-tech__lead">
+              Для изготовления шин Cordiant используются самые передовые материалы и компоненты. Резиновая смесь летних шин создается на основе
+              силикон-содержащих полимеров, которые улучшают сцепление с мокрой дорогой.
+            </p>
+            <p class="cordiant-tech__meta">
+              В некоторых моделях используется ультрасовременный каучук DSSK — он снижает расход топлива и повышает сцепные качества, а также
+              гарантирует курсовую устойчивость на скоростях до 210 км/ч (индекс скорости H). Карбонатные добавки повышают износостойкость
+              протектора, способствуют курсовой устойчивости и продлевают срок службы шин. Кремнезем (силика, SiO2) оптимизирует сцепление на
+              слегка увлажненном асфальте и способствует снижению сопротивления качению. Компоненты с пониженным содержанием вредных веществ
+              обеспечивают соответствие экологическим стандартам
+              <button
+                type="button"
+                class="cordiant-tech__meta-link"
+                data-cordiant-tech-more
+                aria-expanded="false"
+                aria-controls="cordiant-tech-meta-extra"
+              >
+                еще...
+              </button>
+            </p>
+            <p class="cordiant-tech__meta cordiant-tech__meta--extra" id="cordiant-tech-meta-extra" data-cordiant-tech-meta-extra hidden>
+              В некоторых моделях, например в Road Runner, используется двухслойная конструкция протектора — жесткое основание для прочности и
+              мягкий верхний слой для комфорта на неровностях. Такой подход позволяет Cordiant предлагать летние шины с четким разделением по
+              характеристикам — от экономичных до высокопроизводительных, при этом все модели сохраняют устойчивость к российским дорожным и
+              погодным условиям.
+            </p>
+          </div>
+
+          <div class="cordiant-tech__slider-head" data-reveal>
+            <div class="cordiant-tech__label">ТЕХНОЛОГИИ ШИН</div>
+            <div class="cordiant-tech__nav" aria-label="Управление слайдером технологий шин">
+              <button class="cordiant-tech__nav-btn" type="button" data-cordiant-tech-prev aria-label="Предыдущий слайд"></button>
+              <button class="cordiant-tech__nav-btn" type="button" data-cordiant-tech-next aria-label="Следующий слайд"></button>
+            </div>
+          </div>
+
+          <div class="cordiant-tech__viewport" data-cordiant-tech-viewport tabindex="0" aria-label="Слайдер технологий шин Cordiant" data-reveal>
+            <div class="cordiant-tech__track" data-cordiant-tech-track></div>
+          </div>
+
+          <div class="cordiant-tech__pagination" data-cordiant-tech-pagination aria-label="Пагинация слайдера технологий шин"></div>
+        </div>
+      </section>
+
+      <section class="section section--final" id="reasons">
+        <div class="reasons-carousel__shell">
+          <div class="reasons-carousel__intro" data-reveal>
+            <div class="reasons-carousel__head">
+              <h2 class="section-heading">Пять причин купить<br />шины Cordiant</h2>
+              <div class="reasons-carousel__nav carousel-controls" aria-label="Управление каруселью">
+                <button class="carousel-btn reasons-carousel__btn" type="button" data-reasons-prev aria-label="Предыдущий слайд">←</button>
+                <button class="carousel-btn reasons-carousel__btn" type="button" data-reasons-next aria-label="Следующий слайд">→</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="reasons-carousel__bleed" data-reveal>
+            <div class="reasons-carousel__viewport" data-reasons-viewport tabindex="0" aria-label="Карусель: пять причин купить шины Cordiant">
+              <div class="reasons-grid" id="reasons-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--quiz-blue" id="quiz">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <h2 class="section-heading">Квиз по шинам Cordiant</h2>
+            <p>Ответьте на вопросы и проверьте, насколько хорошо вы знаете ключевые технологии и модели линейки.</p>
+          </div>
+
+          <article class="quiz-card quiz-gradient-copy" data-reveal>
+            <div class="quiz-layout">
+              <div class="quiz-layout__main">
+                <header class="quiz-card__header">
+                  <img
+                    class="quiz-card__title-image"
+                    src="assets/img/quiz/quiz_name.png"
+                    alt="Шинный эксперт"
+                    width="2048"
+                    height="2048"
+                    decoding="async"
+                  />
+                  <div
+                    class="quiz-card__progress"
+                    data-quiz-progress
+                    role="progressbar"
+                    aria-label="Прогресс прохождения квиза"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    style="--progress: 0;"
+                  >
+                    <span class="quiz-card__progress-value" data-quiz-progress-value>0%</span>
+                  </div>
+                </header>
+
+                <div class="quiz-question">
+                  <p class="quiz-question__index">Вопрос 1 из 8</p>
+                  <h4 class="quiz-question__title">
+                    Какая модель летних шин Cordiant обеспечивает экономию топлива до 30% по сравнению с
+                    предшественником?
+                  </h4>
+                </div>
+
+                <div class="quiz-options" aria-label="Варианты ответа">
+                  <button type="button" class="quiz-option" aria-pressed="false">
+                    <span class="quiz-option__letter">A.</span>
+                    <span>Cordiant Gravity</span>
+                  </button>
+                  <button type="button" class="quiz-option" aria-pressed="false">
+                    <span class="quiz-option__letter">B.</span>
+                    <span>Cordiant Run Tour</span>
+                  </button>
+                  <button type="button" class="quiz-option" aria-pressed="false">
+                    <span class="quiz-option__letter">C.</span>
+                    <span>Cordiant Off Road 2</span>
+                  </button>
+                  <button type="button" class="quiz-option" aria-pressed="false">
+                    <span class="quiz-option__letter">D.</span>
+                    <span>Вариант ответа</span>
+                  </button>
+                </div>
+
+                <section class="quiz-feedback" data-quiz-feedback hidden>
+                  <button
+                    class="quiz-feedback__retry is-hidden"
+                    type="button"
+                    data-quiz-feedback-retry
+                    aria-label="Изменить ответ"
+                    title="Изменить ответ"
+                  >
+                    <span data-quiz-feedback-retry-text>Изменить ответ</span>
+                    <svg class="quiz-feedback__icon-refresh" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M7.2 10.1H3.8V6.7"></path>
+                      <path d="M3.9 10A8.4 8.4 0 1 1 5.6 18"></path>
+                    </svg>
+                    <svg class="quiz-feedback__icon-next is-hidden" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M5 12h14"></path>
+                      <path d="M13 7l5 5-5 5"></path>
+                    </svg>
+                  </button>
+                  <h4 class="quiz-feedback__title" data-quiz-feedback-status>Да, верно!</h4>
+                  <p class="quiz-feedback__text" data-quiz-feedback-text>
+                    Краткая справка по вопросу будет показана здесь.
+                  </p>
+                </section>
+
+                <section class="quiz-result" data-quiz-result hidden>
+                  <p class="quiz-result__eyebrow">Результат квиза</p>
+                  <h4 class="quiz-result__title">Ваш результат: <span data-quiz-result-percent>0%</span></h4>
+                  <p class="quiz-result__meta">
+                    Верных ответов: <strong><span data-quiz-correct>0</span> из <span data-quiz-total>8</span></strong>
+                  </p>
+                  <p class="quiz-result__meta">Неверных ответов: <strong><span data-quiz-wrong>0</span></strong></p>
+                  <p class="quiz-result__summary" data-quiz-summary>
+                    Ответьте на вопросы, чтобы получить персональный результат.
+                  </p>
+                  <p class="quiz-result__code">Кодовое слово: <strong>SUMMER</strong></p>
+                </section>
+
+                <nav class="quiz-pagination" aria-label="Список вопросов квиза">
+                  <button class="quiz-page-btn" type="button" aria-label="Предыдущий вопрос">‹</button>
+                  <div class="quiz-page-list" role="list">
+                    <button class="quiz-page-num is-active" type="button" role="listitem" title="Вопрос 1">1</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 2">2</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 3">3</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 4">4</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 5">5</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 6">6</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 7">7</button>
+                    <button class="quiz-page-num" type="button" role="listitem" title="Вопрос 8">8</button>
+                  </div>
+                  <button class="quiz-page-result is-locked" type="button" aria-label="Шаг результата" data-quiz-result-step disabled>
+                    <span class="quiz-lock-lottie" data-quiz-lock-lottie aria-hidden="true"></span>
+                    <span class="quiz-page-result__label">Результат</span>
+                  </button>
+                  <button class="quiz-page-btn quiz-page-btn--next" type="button" aria-label="Следующий вопрос">›</button>
+                </nav>
+              </div>
+              <aside class="quiz-layout__visual" aria-label="Изображение вопроса">
+                <img
+                  src="assets/img/quiz/1.jpg"
+                  alt="Изображение вопроса квиза"
+                  width="1600"
+                  height="900"
+                  loading="lazy"
+                />
+              </aside>
+            </div>
+            <noscript>
+              <p>Javascript is disabled on your browser. Please enable it in order to use this form.</p>
+            </noscript>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer site-footer--podium">
+      <div class="container podium-footer">
+        <div class="podium-footer__top">
+          <a class="podium-footer__brand" href="#hero" aria-label="Cordiant">
+            <img src="assets/icons/logo-brand.svg" alt="Cordiant" width="168" height="34" loading="lazy" decoding="async" />
+          </a>
+
+          <nav class="podium-footer__nav" aria-label="Навигация в подвале">
+            <a href="#about">О бренде</a>
+            <a href="#summer">Шины</a>
+            <a href="#technologies">Технологии</a>
+            <a href="#reasons">Преимущества</a>
+            <a href="#quiz">Квиз</a>
+          </nav>
+        </div>
+
+        <div class="podium-footer__legal">
+          <p>Реклама, АО «Кордиант», ИНН 7601001509.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

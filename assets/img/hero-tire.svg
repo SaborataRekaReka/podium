@@ -1,0 +1,24 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#005387"/>
+      <stop offset="1" stop-color="#0A6CA9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(940 210) rotate(140) scale(520 320)">
+      <stop stop-color="white" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" rx="32" fill="url(#g1)"/>
+  <rect x="50" y="50" width="1180" height="620" rx="28" stroke="rgba(255,255,255,0.26)"/>
+  <ellipse cx="940" cy="210" rx="520" ry="320" fill="url(#glow)"/>
+  <g opacity="0.2" stroke="white">
+    <path d="M120 530 C280 410 530 650 760 560 C940 490 1080 530 1170 600"/>
+    <path d="M120 590 C280 470 530 710 760 620 C940 550 1080 590 1170 660"/>
+  </g>
+  <text x="90" y="148" fill="white" font-family="Arial, sans-serif" font-size="52" font-weight="700">Cordiant Promo</text>
+  <text x="90" y="208" fill="rgba(255,255,255,0.9)" font-family="Arial, sans-serif" font-size="30">Летние шины. Кешбэк 15%. Призы каждую неделю.</text>
+  <circle cx="980" cy="500" r="140" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="980" cy="500" r="96" fill="rgba(255,255,255,0.28)"/>
+  <circle cx="980" cy="500" r="58" fill="rgba(255,255,255,0.45)"/>
+</svg>
