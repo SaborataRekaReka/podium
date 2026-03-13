@@ -1,0 +1,11 @@
+{
+  "name": "podium-static",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static Cordiant Podium landing QA scripts",
+  "scripts": {
+    "check:js": "node --check script.js",
+    "check:links": "node tools/check-local-links.mjs",
+    "check": "npm run check:js && npm run check:links"
+  }
+}
