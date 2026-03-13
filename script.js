@@ -1519,6 +1519,21 @@
       if (intro instanceof HTMLElement) intro.classList.toggle("is-meta-expanded", nextExpanded);
     });
   };
+  const setupHorizontalArrowNavigation = (viewport, onPrev, onNext, options = {}) => {
+    if (!(viewport instanceof HTMLElement)) return;
+    const ignoreSelector = typeof options.ignoreSelector === "string" ? options.ignoreSelector.trim() : "";
+    viewport.addEventListener("keydown", (event) => {
+      const target = event.target;
+      if (ignoreSelector && target instanceof Element && target.closest(ignoreSelector)) return;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        onPrev();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        onNext();
+      }
+    });
+  };
   const setupReasonsCarousel = () => {
     const viewport = document.querySelector("[data-reasons-viewport]");
     const track = document.getElementById("reasons-grid");
@@ -1546,15 +1561,7 @@
     };
     prev.addEventListener("click", () => move(-1));
     next.addEventListener("click", () => move(1));
-    viewport.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        move(-1);
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        move(1);
-      }
-    });
+    setupHorizontalArrowNavigation(viewport, () => move(-1), () => move(1));
     let rafId = 0;
     viewport.addEventListener("scroll", () => {
       cancelAnimationFrame(rafId);
@@ -2068,16 +2075,8 @@
       if (!Number.isFinite(index)) return;
       goToRealIndex(index);
     });
-    viewport.addEventListener("keydown", (event) => {
-      const target = event.target;
-      if (target instanceof Element && target.closest("[data-cordiant-tech-hotspot]")) return;
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        moveBy(-1);
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        moveBy(1);
-      }
+    setupHorizontalArrowNavigation(viewport, () => moveBy(-1), () => moveBy(1), {
+      ignoreSelector: "[data-cordiant-tech-hotspot]"
     });
     track.addEventListener("transitionend", (event) => {
       if (event.propertyName !== "transform") return;
@@ -2264,15 +2263,7 @@
       }
       sync(true);
     });
-    viewport.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        moveBy(-1);
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        moveBy(1);
-      }
-    });
+    setupHorizontalArrowNavigation(viewport, () => moveBy(-1), () => moveBy(1));
     track.addEventListener("click", (event) => {
       const button = event.target.closest("[data-cordiant-accordion-carousel-more]");
       if (!(button instanceof HTMLButtonElement)) return;
@@ -2990,6 +2981,13 @@
       const target = document.getElementById("quiz") || document.getElementById("reasons");
       if (!(target instanceof HTMLElement)) return;
       target.scrollIntoView({ behavior: rdm() ? "auto" : "smooth", block: "start" });
+      const focusTarget = target.querySelector("h2, h3, button, [tabindex]");
+      if (focusTarget instanceof HTMLElement) {
+        if (!focusTarget.hasAttribute("tabindex") && !/^(BUTTON|A|INPUT|SELECT|TEXTAREA)$/.test(focusTarget.tagName)) {
+          focusTarget.setAttribute("tabindex", "-1");
+        }
+        window.setTimeout(() => focusTarget.focus({ preventScroll: true }), rdm() ? 0 : 350);
+      }
     });
   };
   const setupUi = () => { if (toggle) toggle.addEventListener("click", openDrawer); if (closeBtn) closeBtn.addEventListener("click", () => closeDrawer()); document.querySelectorAll(".mobile-nav a").forEach((a) => a.addEventListener("click", () => closeDrawer())); document.addEventListener("keydown", (e) => { if (e.key === "Escape" && drawer && drawer.classList.contains("is-open")) closeDrawer(); }); window.addEventListener("resize", () => { if (window.innerWidth > 1024) closeDrawer(true); updHeader(); }); window.addEventListener("scroll", updHeader, { passive: true }); };
