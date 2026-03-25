@@ -30,8 +30,13 @@ jobs:
 
       - name: Rsync to server
         run: |
-          rsync -az --delete \
+          rsync -rlz --delete \
+            --omit-dir-times \
+            --no-perms --no-owner --no-group \
             --exclude ".git/" \
             --exclude ".github/" \
+            --exclude "logs/" \
+            --exclude "backups/" \
+            --exclude ".well-known/" \
             -e "ssh -p ${SSH_PORT:-22} -o BatchMode=yes" \
             ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
