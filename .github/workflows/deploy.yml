@@ -32,6 +32,11 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -p "${SSH_PORT:-22}" -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
+      - name: Preflight remote write check
+        run: |
+          ssh -p "${SSH_PORT:-22}" -o BatchMode=yes "$SSH_USER@$SSH_HOST" \
+            "mkdir -p '$DEPLOY_PATH' && touch '$DEPLOY_PATH/.deploy_write_test' && rm -f '$DEPLOY_PATH/.deploy_write_test'"
+
       - name: Rsync to server
         run: |
           rsync -rlz \
@@ -42,5 +47,5 @@ jobs:
             --exclude "logs/" \
             --exclude "backups/" \
             --exclude ".well-known/" \
-            -e "ssh -p ${SSH_PORT:-22} -o BatchMode=yes" \
+            -e "ssh -p ${SSH_PORT:-22} -o BatchMode=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=6" \
             ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
