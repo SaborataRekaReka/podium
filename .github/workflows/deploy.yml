@@ -20,6 +20,7 @@ jobs:
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+      SSH_KEY_PASSPHRASE: ${{ secrets.SSH_KEY_PASSPHRASE }}
 
     steps:
       - name: Checkout
@@ -44,7 +45,13 @@ jobs:
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_ed25519
+          if [ -n "${SSH_KEY_PASSPHRASE:-}" ]; then
+            sudo apt-get update
+            sudo apt-get install -y sshpass
+            sshpass -p "$SSH_KEY_PASSPHRASE" -P "Enter passphrase for" ssh-add ~/.ssh/id_ed25519
+          else
+            ssh-add ~/.ssh/id_ed25519
+          fi
 
       - name: Configure SSH password auth
         if: env.SSH_PRIVATE_KEY == ''
