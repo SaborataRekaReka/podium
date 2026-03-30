@@ -220,6 +220,143 @@ ol {
   text-decoration: none;
 }
 
+.section.cordiant-hero .cordiant-hero__burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(0, 47, 76, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.section.cordiant-hero .cordiant-hero__burger span {
+  width: 19px;
+  background: #fff;
+  transition: transform 0.24s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.section.cordiant-hero .cordiant-hero__burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.section.cordiant-hero .cordiant-hero__burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.section.cordiant-hero .cordiant-hero__burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.cordiant-hero__drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 23;
+  opacity: 0;
+  background: rgba(2, 22, 38, 0.5);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.26s ease;
+}
+
+.cordiant-hero__drawer-backdrop.is-open {
+  opacity: 1;
+}
+
+.mobile-drawer.cordiant-hero__drawer {
+  z-index: 24;
+  width: min(86vw, 348px);
+  padding: 20px 18px 24px;
+  gap: 20px;
+  border-left: 1px solid rgba(0, 83, 135, 0.18);
+  background:
+    linear-gradient(182deg, rgba(0, 83, 135, 0.08) 0%, rgba(53, 171, 167, 0.04) 36%, rgba(255, 255, 255, 0) 100%),
+    #fdfefe;
+}
+
+.cordiant-hero__drawer-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cordiant-hero__drawer-logo img {
+  display: block;
+  width: 132px;
+  height: auto;
+}
+
+.cordiant-hero__drawer-close {
+  border: 1px solid rgba(0, 83, 135, 0.25);
+  background: #fff;
+  color: #0f3f5f;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.cordiant-hero__drawer-close:hover {
+  background: rgba(0, 83, 135, 0.08);
+  border-color: rgba(0, 83, 135, 0.42);
+}
+
+.cordiant-hero__mobile-nav {
+  gap: 8px;
+}
+
+.cordiant-hero__mobile-nav .cordiant-hero__nav-link--mobile {
+  display: block;
+  border: 1px solid rgba(0, 83, 135, 0.16);
+  padding: 12px 12px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #114c73;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1.15;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.cordiant-hero__mobile-nav .cordiant-hero__nav-link--mobile:hover {
+  background: rgba(0, 83, 135, 0.08);
+  border-color: rgba(0, 83, 135, 0.35);
+  color: #003f68;
+  text-decoration: none;
+}
+
+.cordiant-hero__drawer-close:focus-visible {
+  outline: 2px solid rgba(0, 83, 135, 0.75);
+  outline-offset: 2px;
+}
+
+.cordiant-hero__drawer-cta {
+  margin-top: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  background: #005387;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+}
+
+.cordiant-hero__drawer-cta:hover {
+  background: #0c6a9f;
+  text-decoration: none;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 .cordiant-hero__quiz {
   border: 0;
   background: #1A5E8E;
@@ -421,6 +558,10 @@ ol {
   .section.cordiant-hero {
     --hero-header-h: 88px;
     --hero-image-ratio: 1;
+  }
+
+  .section.cordiant-hero .cordiant-hero__burger {
+    display: inline-flex;
   }
 
   .section.cordiant-hero::before {

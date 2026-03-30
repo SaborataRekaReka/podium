@@ -387,6 +387,7 @@
   const header = document.querySelector("[data-header]");
   const hero = document.querySelector(".hero--immersive");
   const drawer = document.querySelector("[data-drawer]");
+  const drawerBackdrop = document.querySelector("[data-menu-backdrop]");
   const toggle = document.querySelector("[data-menu-toggle]");
   const closeBtn = document.querySelector("[data-menu-close]");
   const setText = (k, v) => { document.querySelectorAll(`[data-content="${k}"]`).forEach((n) => { n.textContent = v; }); };
@@ -400,8 +401,31 @@
     const b = hero.offsetTop + hero.offsetHeight - header.offsetHeight;
     header.classList.toggle("is-on-hero", window.scrollY < b);
   };
-  const openDrawer = () => { if (!drawer) return; drawer.hidden = false; requestAnimationFrame(() => drawer.classList.add("is-open")); if (toggle) toggle.setAttribute("aria-expanded", "true"); };
-  const closeDrawer = (now = false) => { if (!drawer) return; drawer.classList.remove("is-open"); if (toggle) toggle.setAttribute("aria-expanded", "false"); const fn = () => { if (!drawer.classList.contains("is-open")) drawer.hidden = true; }; now ? fn() : setTimeout(fn, 260); };
+  const openDrawer = () => {
+    if (!drawer) return;
+    drawer.hidden = false;
+    if (drawerBackdrop) drawerBackdrop.hidden = false;
+    document.body.classList.add("menu-open");
+    requestAnimationFrame(() => {
+      drawer.classList.add("is-open");
+      drawerBackdrop?.classList.add("is-open");
+    });
+    if (toggle) toggle.setAttribute("aria-expanded", "true");
+  };
+  const closeDrawer = (now = false) => {
+    if (!drawer) return;
+    drawer.classList.remove("is-open");
+    drawerBackdrop?.classList.remove("is-open");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+    const fn = () => {
+      if (!drawer.classList.contains("is-open")) {
+        drawer.hidden = true;
+        if (drawerBackdrop) drawerBackdrop.hidden = true;
+      }
+    };
+    now ? fn() : setTimeout(fn, 260);
+  };
   const renderTimeline = () => {
     const root = document.getElementById("brand-timeline");
     if (!root) return;
@@ -2965,7 +2989,28 @@
       }
     });
   };
-  const setupUi = () => { if (toggle) toggle.addEventListener("click", openDrawer); if (closeBtn) closeBtn.addEventListener("click", () => closeDrawer()); document.querySelectorAll(".mobile-nav a").forEach((a) => a.addEventListener("click", () => closeDrawer())); document.addEventListener("keydown", (e) => { if (e.key === "Escape" && drawer && drawer.classList.contains("is-open")) closeDrawer(); }); window.addEventListener("resize", () => { if (window.innerWidth > 1024) closeDrawer(true); updHeader(); }); window.addEventListener("scroll", updHeader, { passive: true }); };
+  const setupUi = () => {
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        if (drawer && drawer.classList.contains("is-open")) {
+          closeDrawer();
+          return;
+        }
+        openDrawer();
+      });
+    }
+    if (closeBtn) closeBtn.addEventListener("click", () => closeDrawer());
+    if (drawerBackdrop) drawerBackdrop.addEventListener("click", () => closeDrawer());
+    document.querySelectorAll(".mobile-nav a").forEach((a) => a.addEventListener("click", () => closeDrawer()));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && drawer && drawer.classList.contains("is-open")) closeDrawer();
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) closeDrawer(true);
+      updHeader();
+    });
+    window.addEventListener("scroll", updHeader, { passive: true });
+  };
   const fill = () => { setText("hero-title", C.hero.title); setText("hero-subtitle", C.hero.subtitle); setText("hero-lead", C.hero.lead); setText("brand-intro", C.brand.intro); setText("brand-symbolism", C.brand.symbolism); setText("brand-testing", C.brand.testing); setText("brand-rnd", C.brand.rnd); setText("brand-lab", C.brand.lab); setText("brand-advantages", C.brand.advantages); setText("summer-overview", C.summerOverview); setText("tech-stages", C.tech.stages); setText("tech-sites", C.tech.sites); setText("tech-staff", C.tech.staff); setText("tech-quality", C.tech.quality); setText("tech-strategy-main", C.tech.strategyMain); setText("tech-strategy-extra", C.tech.strategyExtra); setText("tech-development", C.tech.development); setText("russia-intro", C.russia.intro); setText("russia-details", C.russia.details); setText("materials-intro", C.materials.intro); };
   fill();
   renderTimeline();

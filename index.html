@@ -36,8 +36,41 @@
               <a class="cordiant-hero__nav-link" href="#reasons">Преимущества</a>
             </nav>
 
+            <button
+              class="cordiant-hero__burger burger"
+              type="button"
+              data-menu-toggle
+              aria-expanded="false"
+              aria-controls="hero-mobile-drawer"
+              aria-label="Открыть меню"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
             <button class="cordiant-hero__quiz" type="button">Пройти квиз</button>
           </header>
+
+          <div class="cordiant-hero__drawer-backdrop" data-menu-backdrop hidden aria-hidden="true"></div>
+
+          <aside class="mobile-drawer cordiant-hero__drawer" id="hero-mobile-drawer" data-drawer hidden aria-label="Мобильное меню">
+            <div class="mobile-drawer__header">
+              <div class="cordiant-hero__drawer-logo" aria-hidden="true">
+                <img src="assets/icons/logo-brand.svg" alt="" width="132" height="26" loading="lazy" />
+              </div>
+              <button class="cordiant-hero__drawer-close" type="button" data-menu-close aria-label="Закрыть меню">✕</button>
+            </div>
+
+            <nav class="mobile-nav cordiant-hero__mobile-nav" aria-label="Мобильная навигация">
+              <a class="cordiant-hero__nav-link--mobile" href="#about">О бренде</a>
+              <a class="cordiant-hero__nav-link--mobile" href="#technologies">Технологии</a>
+              <a class="cordiant-hero__nav-link--mobile" href="#summer">Шины</a>
+              <a class="cordiant-hero__nav-link--mobile" href="#reasons">Преимущества</a>
+            </nav>
+
+            <a class="cordiant-hero__drawer-cta" href="#quiz">Пройти квиз</a>
+          </aside>
 
           <div class="cordiant-hero__content">
             <p class="cordiant-hero__subtitle">Шины Cordiant</p>
