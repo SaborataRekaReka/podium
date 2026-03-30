@@ -422,6 +422,10 @@ ol {
     --hero-header-h: 88px;
   }
 
+  .section.cordiant-hero::before {
+    background: url("/assets/img/hero/%D0%9F%D0%BE%D0%B4%D0%B8%D1%83%D0%BC%20Cordiant_800%D1%85800.jpg") center top / 100% auto no-repeat;
+  }
+
   .cordiant-hero__container {
     padding-inline: var(--container-gutter);
   }
