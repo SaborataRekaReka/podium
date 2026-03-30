@@ -36,9 +36,14 @@ jobs:
             echo "Missing SSH auth. Set SSH_PRIVATE_KEY or SSH_PASSWORD.";
             exit 1;
           fi
+          if [ -n "${SSH_PASSWORD:-}" ]; then
+            echo "Auth mode: password";
+          else
+            echo "Auth mode: ssh key";
+          fi
 
       - name: Configure SSH key auth
-        if: env.SSH_PRIVATE_KEY != ''
+        if: env.SSH_PRIVATE_KEY != '' && env.SSH_PASSWORD == ''
         run: |
           set -eu
           mkdir -p ~/.ssh
@@ -54,7 +59,7 @@ jobs:
           fi
 
       - name: Configure SSH password auth
-        if: env.SSH_PRIVATE_KEY == ''
+        if: env.SSH_PASSWORD != ''
         run: |
           set -eu
           sudo apt-get update
@@ -67,21 +72,21 @@ jobs:
           ssh-keyscan -p "${SSH_PORT:-22}" -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
       - name: Preflight remote write check (key)
-        if: env.SSH_PRIVATE_KEY != ''
+        if: env.SSH_PRIVATE_KEY != '' && env.SSH_PASSWORD == ''
         run: |
           set -eu
           ssh -p "${SSH_PORT:-22}" -o BatchMode=yes "$SSH_USER@$SSH_HOST" \
             "mkdir -p '$DEPLOY_PATH' && touch '$DEPLOY_PATH/.deploy_write_test' && rm -f '$DEPLOY_PATH/.deploy_write_test'"
 
       - name: Preflight remote write check (password)
-        if: env.SSH_PRIVATE_KEY == ''
+        if: env.SSH_PASSWORD != ''
         run: |
           set -eu
           sshpass -p "$SSH_PASSWORD" ssh -p "${SSH_PORT:-22}" -o StrictHostKeyChecking=yes "$SSH_USER@$SSH_HOST" \
             "mkdir -p '$DEPLOY_PATH' && touch '$DEPLOY_PATH/.deploy_write_test' && rm -f '$DEPLOY_PATH/.deploy_write_test'"
 
       - name: Rsync to server (key)
-        if: env.SSH_PRIVATE_KEY != ''
+        if: env.SSH_PRIVATE_KEY != '' && env.SSH_PASSWORD == ''
         run: |
           set -eu
           rsync -rlz --delete-delay \
@@ -99,7 +104,7 @@ jobs:
             ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
 
       - name: Rsync to server (password)
-        if: env.SSH_PRIVATE_KEY == ''
+        if: env.SSH_PASSWORD != ''
         run: |
           set -eu
           sshpass -p "$SSH_PASSWORD" rsync -rlz --delete-delay \
