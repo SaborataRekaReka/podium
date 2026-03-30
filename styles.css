@@ -366,7 +366,10 @@ body.menu-open {
   line-height: 1;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .cordiant-hero__quiz:hover {
@@ -473,8 +476,7 @@ body.menu-open {
   color: rgba(255, 255, 255, 0.55);
 }
 
-/* Temporary hero mode: keep header, hide title/button/legal */
-.section.cordiant-hero .cordiant-hero__quiz,
+/* Temporary hero mode: keep header, hide title/legal */
 .section.cordiant-hero .cordiant-hero__content,
 .section.cordiant-hero .cordiant-hero__legal {
   display: none;
@@ -562,6 +564,7 @@ body.menu-open {
 
   .section.cordiant-hero .cordiant-hero__burger {
     display: inline-flex;
+    margin-left: auto;
   }
 
   .section.cordiant-hero::before {
@@ -576,6 +579,16 @@ body.menu-open {
     margin-top: 0;
     min-height: var(--hero-header-h);
     padding-block: 12px;
+    gap: 10px;
+  }
+
+  .cordiant-hero__logo img {
+    width: clamp(118px, 34vw, 142px);
+  }
+
+  .cordiant-hero__quiz {
+    padding: 10px 14px;
+    font-size: 14px;
   }
 
   .cordiant-hero__nav {
