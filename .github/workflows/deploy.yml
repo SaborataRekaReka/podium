@@ -5,6 +5,10 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+concurrency:
+  group: podium-prod-deploy
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,38 +18,93 @@ jobs:
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_PORT: ${{ secrets.SSH_PORT }}
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure SSH key
+      - name: Validate deploy configuration
         run: |
+          set -eu
+          [ -n "${SSH_HOST:-}" ] || { echo "Missing secret: SSH_HOST"; exit 1; }
+          [ -n "${SSH_USER:-}" ] || { echo "Missing secret: SSH_USER"; exit 1; }
+          [ -n "${DEPLOY_PATH:-}" ] || { echo "Missing secret: DEPLOY_PATH"; exit 1; }
+          if [ -z "${SSH_PRIVATE_KEY:-}" ] && [ -z "${SSH_PASSWORD:-}" ]; then
+            echo "Missing SSH auth. Set SSH_PRIVATE_KEY or SSH_PASSWORD.";
+            exit 1;
+          fi
+
+      - name: Configure SSH key auth
+        if: env.SSH_PRIVATE_KEY != ''
+        run: |
+          set -eu
           mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_ed25519
 
+      - name: Configure SSH password auth
+        if: env.SSH_PRIVATE_KEY == ''
+        run: |
+          set -eu
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+
       - name: Add host to known_hosts
         run: |
+          set -eu
           mkdir -p ~/.ssh
           ssh-keyscan -p "${SSH_PORT:-22}" -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
-      - name: Preflight remote write check
+      - name: Preflight remote write check (key)
+        if: env.SSH_PRIVATE_KEY != ''
         run: |
+          set -eu
           ssh -p "${SSH_PORT:-22}" -o BatchMode=yes "$SSH_USER@$SSH_HOST" \
             "mkdir -p '$DEPLOY_PATH' && touch '$DEPLOY_PATH/.deploy_write_test' && rm -f '$DEPLOY_PATH/.deploy_write_test'"
 
-      - name: Rsync to server
+      - name: Preflight remote write check (password)
+        if: env.SSH_PRIVATE_KEY == ''
         run: |
-          rsync -rlz \
+          set -eu
+          sshpass -p "$SSH_PASSWORD" ssh -p "${SSH_PORT:-22}" -o StrictHostKeyChecking=yes "$SSH_USER@$SSH_HOST" \
+            "mkdir -p '$DEPLOY_PATH' && touch '$DEPLOY_PATH/.deploy_write_test' && rm -f '$DEPLOY_PATH/.deploy_write_test'"
+
+      - name: Rsync to server (key)
+        if: env.SSH_PRIVATE_KEY != ''
+        run: |
+          set -eu
+          rsync -rlz --delete-delay \
             --omit-dir-times \
             --no-perms --no-owner --no-group \
             --exclude ".git/" \
             --exclude ".github/" \
+            --exclude ".secrets/" \
+            --exclude ".deploy_tmp/" \
+            --exclude ".deploy_tmp.zip" \
             --exclude "logs/" \
             --exclude "backups/" \
             --exclude ".well-known/" \
             -e "ssh -p ${SSH_PORT:-22} -o BatchMode=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=6" \
+            ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+
+      - name: Rsync to server (password)
+        if: env.SSH_PRIVATE_KEY == ''
+        run: |
+          set -eu
+          sshpass -p "$SSH_PASSWORD" rsync -rlz --delete-delay \
+            --omit-dir-times \
+            --no-perms --no-owner --no-group \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude ".secrets/" \
+            --exclude ".deploy_tmp/" \
+            --exclude ".deploy_tmp.zip" \
+            --exclude "logs/" \
+            --exclude "backups/" \
+            --exclude ".well-known/" \
+            -e "ssh -p ${SSH_PORT:-22} -o StrictHostKeyChecking=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=6" \
             ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
