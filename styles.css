@@ -420,6 +420,7 @@ ol {
 @media (max-width: 900px) {
   .section.cordiant-hero {
     --hero-header-h: 88px;
+    --hero-image-ratio: 1;
   }
 
   .section.cordiant-hero::before {
