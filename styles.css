@@ -159,7 +159,7 @@ ol {
   inset: var(--hero-header-h) 0 0;
   z-index: 0;
   pointer-events: none;
-  background: url("/assets/img/podium.jpeg?v=20260330-1548") center top / 100% auto no-repeat;
+  background: url("/assets/img/podium.jpeg?v=20260330-2315") center top / 100% auto no-repeat;
 }
 
 .cordiant-hero__container {
@@ -568,7 +568,7 @@ body.menu-open {
   }
 
   .section.cordiant-hero::before {
-    background: url("/assets/img/hero/%D0%9F%D0%BE%D0%B4%D0%B8%D1%83%D0%BC%20Cordiant_800%D1%85800.jpg") center top / 100% auto no-repeat;
+    background: url("/assets/img/hero/%D0%9F%D0%BE%D0%B4%D0%B8%D1%83%D0%BC%20Cordiant_800%D1%85800.jpg?v=20260330-2315") center top / 100% auto no-repeat;
   }
 
   .cordiant-hero__container {
