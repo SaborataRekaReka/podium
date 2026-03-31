@@ -534,7 +534,7 @@
             </p>
           </div>
           <figure class="milestones-symbol__media">
-            <img src="assets/img/freepik__-cordiant__83852.png" alt="Символика бренда Cordiant" width="1024" height="1024" loading="lazy" />
+            <img src="assets/img/freepik__-cordiant__83852.webp" alt="Символика бренда Cordiant" width="800" height="537" loading="lazy" />
           </figure>
         </article>`;
         return;
