@@ -64,7 +64,7 @@ $source = $normalize($payload['source'] ?? 'podium-quiz');
 $userAgent = $normalize($_SERVER['HTTP_USER_AGENT'] ?? '');
 $remoteIp = $normalize($_SERVER['REMOTE_ADDR'] ?? '');
 
-$csvFile = __DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'quiz-results.csv';
+$csvFile = __DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'quiz-results-f4a65d5259fb07bd.csv';
 $isNewFile = !file_exists($csvFile) || filesize($csvFile) === 0;
 
 $fh = fopen($csvFile, 'ab');
