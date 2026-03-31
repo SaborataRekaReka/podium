@@ -8976,10 +8976,6 @@ body {
   pointer-events: none;
 }
 
-.reasons-grid .reason-card:first-child .reason-card__video {
-  transform: scaleX(-1);
-}
-
 .reason-card--solid {
   background: linear-gradient(150deg, #0b5f96 0%, #084f7d 100%);
 }
