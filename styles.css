@@ -6784,12 +6784,45 @@ body {
   .section--quiz-blue .quiz-layout {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .section--quiz-blue .quiz-layout__visual {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
   .section--quiz-blue .quiz-card {
     --quiz-question-lines: 4;
     --quiz-main-min-height: 440px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section--quiz-blue .quiz-card {
+    --quiz-main-min-height: 0;
+    --quiz-option-height: auto;
+  }
+
+  .quiz-option {
+    min-height: 52px;
+    max-height: none;
+  }
+
+  .quiz-pagination {
+    grid-template-columns: 32px repeat(7, minmax(0, 1fr)) 36px 32px;
+    gap: 4px;
+  }
+
+  .quiz-page-btn,
+  .quiz-page-num,
+  .quiz-page-result {
+    min-height: 36px;
+    padding: 0 4px;
+    font-size: var(--text-sm);
+  }
+
+  .quiz-page-result__label {
+    display: none;
   }
 }
 
