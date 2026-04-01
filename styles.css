@@ -9090,6 +9090,29 @@ body {
   max-height: 32em;
 }
 
+.reason-card--service-programs:hover p,
+.reason-card--service-programs:focus-within p {
+  overflow-y: auto;
+  max-height: clamp(140px, 18vh, 240px);
+  padding-right: 8px;
+}
+
+.reason-card--service-programs p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reason-card--service-programs p::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.reason-card--service-programs p::-webkit-scrollbar-thumb {
+  background: rgba(53, 171, 167, 0.65);
+}
+
+.reason-card--service-programs p::-webkit-scrollbar-thumb:hover {
+  background: rgba(53, 171, 167, 0.9);
+}
+
 .section--summer-podium {
   position: relative;
   --summer-wheel-height: clamp(188px, 15vw, 250px);
