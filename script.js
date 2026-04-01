@@ -1432,37 +1432,56 @@
     const slides = Array.from(track.querySelectorAll(".cordiant-adapt-card"));
     const total = slides.length;
     if (!total) return;
-    pagination.innerHTML = slides.map((_, i) => (
-      `<button class="reasons-carousel__dot" type="button" data-cordiant-adapt-dot="${i}" aria-label="Показать слайд ${i + 1}"></button>`
-    )).join("");
-    let activeIndex = 0;
-    const sync = (animate = true) => {
+    const getVisibleCount = () => {
+      if (window.innerWidth <= 640) return 1;
+      if (window.innerWidth <= 980) return 2;
+      return 3;
+    };
+    let visibleCount = getVisibleCount();
+    let activePage = 0;
+    let pages = 1;
+    const getPages = () => Math.max(1, Math.ceil(total / visibleCount));
+    const renderPagination = () => {
+      pages = getPages();
+      pagination.innerHTML = Array.from({ length: pages }, (_, i) => (
+        `<button class="reasons-carousel__dot" type="button" data-cordiant-adapt-dot="${i}" aria-label="Показать страницу ${i + 1}"></button>`
+      )).join("");
+    };
+    const sync = (animate = true, shouldRenderPagination = false) => {
+      visibleCount = getVisibleCount();
+      const nextPages = getPages();
+      if (shouldRenderPagination || nextPages !== pages) {
+        renderPagination();
+      }
+      activePage = Math.max(0, Math.min(activePage, pages - 1));
+      const startIndex = Math.min(total - 1, activePage * visibleCount);
+      const target = slides[startIndex];
       track.style.transition = animate && !rdm() ? "transform 420ms ease" : "none";
-      track.style.transform = `translateX(${-viewport.clientWidth * activeIndex}px)`;
+      track.style.transform = `translateX(${-((target instanceof HTMLElement) ? target.offsetLeft : 0)}px)`;
       pagination.querySelectorAll("[data-cordiant-adapt-dot]").forEach((button, index) => {
-        const isActive = index === activeIndex;
+        const isActive = index === activePage;
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-current", isActive ? "true" : "false");
       });
       prev.disabled = false;
       next.disabled = false;
     };
-    const goTo = (index, animate = true) => {
-      activeIndex = ((index % total) + total) % total;
+    const goTo = (page, animate = true) => {
+      activePage = ((page % pages) + pages) % pages;
       sync(animate);
     };
-    prev.addEventListener("click", () => goTo(activeIndex - 1));
-    next.addEventListener("click", () => goTo(activeIndex + 1));
+    prev.addEventListener("click", () => goTo(activePage - 1));
+    next.addEventListener("click", () => goTo(activePage + 1));
     pagination.addEventListener("click", (event) => {
       const button = event.target.closest("[data-cordiant-adapt-dot]");
       if (!(button instanceof HTMLButtonElement)) return;
-      const index = Number(button.getAttribute("data-cordiant-adapt-dot"));
-      if (!Number.isFinite(index)) return;
-      goTo(index);
+      const page = Number(button.getAttribute("data-cordiant-adapt-dot"));
+      if (!Number.isFinite(page)) return;
+      goTo(page);
     });
-    setupHorizontalArrowNavigation(viewport, () => goTo(activeIndex - 1), () => goTo(activeIndex + 1));
-    window.addEventListener("resize", () => sync(false), { passive: true });
-    sync(false);
+    setupHorizontalArrowNavigation(viewport, () => goTo(activePage - 1), () => goTo(activePage + 1));
+    window.addEventListener("resize", () => sync(false, true), { passive: true });
+    sync(false, true);
   };
   const setupReasonsCarousel = () => {
     const viewport = document.querySelector("[data-reasons-viewport]");
