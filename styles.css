@@ -8483,7 +8483,8 @@ body {
   background: center / contain no-repeat url("assets/icons/arrow_right.svg");
 }
 
-.reasons-carousel__btn.carousel-btn[data-reasons-prev]::before {
+.reasons-carousel__btn.carousel-btn[data-reasons-prev]::before,
+.reasons-carousel__btn.carousel-btn[data-cordiant-adapt-prev]::before {
   transform: rotate(180deg);
 }
 
