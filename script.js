@@ -1416,6 +1416,54 @@
       }
     });
   };
+  const setupCordiantAdaptCarousel = () => {
+    const root = document.querySelector("[data-cordiant-adapt-carousel]");
+    const viewport = root?.querySelector("[data-cordiant-adapt-viewport]");
+    const track = root?.querySelector("[data-cordiant-adapt-track]");
+    const prev = root?.querySelector("[data-cordiant-adapt-prev]");
+    const next = root?.querySelector("[data-cordiant-adapt-next]");
+    const pagination = root?.querySelector("[data-cordiant-adapt-pagination]");
+    if (!(root instanceof HTMLElement)
+      || !(viewport instanceof HTMLElement)
+      || !(track instanceof HTMLElement)
+      || !(prev instanceof HTMLButtonElement)
+      || !(next instanceof HTMLButtonElement)
+      || !(pagination instanceof HTMLElement)) return;
+    const slides = Array.from(track.querySelectorAll(".cordiant-adapt-card"));
+    const total = slides.length;
+    if (!total) return;
+    pagination.innerHTML = slides.map((_, i) => (
+      `<button class="reasons-carousel__dot" type="button" data-cordiant-adapt-dot="${i}" aria-label="Показать слайд ${i + 1}"></button>`
+    )).join("");
+    let activeIndex = 0;
+    const sync = (animate = true) => {
+      track.style.transition = animate && !rdm() ? "transform 420ms ease" : "none";
+      track.style.transform = `translateX(${-viewport.clientWidth * activeIndex}px)`;
+      pagination.querySelectorAll("[data-cordiant-adapt-dot]").forEach((button, index) => {
+        const isActive = index === activeIndex;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+      prev.disabled = false;
+      next.disabled = false;
+    };
+    const goTo = (index, animate = true) => {
+      activeIndex = ((index % total) + total) % total;
+      sync(animate);
+    };
+    prev.addEventListener("click", () => goTo(activeIndex - 1));
+    next.addEventListener("click", () => goTo(activeIndex + 1));
+    pagination.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-cordiant-adapt-dot]");
+      if (!(button instanceof HTMLButtonElement)) return;
+      const index = Number(button.getAttribute("data-cordiant-adapt-dot"));
+      if (!Number.isFinite(index)) return;
+      goTo(index);
+    });
+    setupHorizontalArrowNavigation(viewport, () => goTo(activeIndex - 1), () => goTo(activeIndex + 1));
+    window.addEventListener("resize", () => sync(false), { passive: true });
+    sync(false);
+  };
   const setupReasonsCarousel = () => {
     const viewport = document.querySelector("[data-reasons-viewport]");
     const track = document.getElementById("reasons-grid");
@@ -3037,6 +3085,7 @@
   setupMaterialHotspots();
   setupCordiantTechMore();
   setupCordiantAdapt();
+  setupCordiantAdaptCarousel();
   setupReasonsCarousel();
   setupCordiantTechSlider();
   setupCordiantAccordion();

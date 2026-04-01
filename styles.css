@@ -8671,7 +8671,39 @@ body {
   transform: translate(0, -40%) rotate(45deg);
 }
 
-/* — Adapt cards (3-column layout) — */
+.cordiant-adapt-carousel {
+  margin-top: clamp(54px, 5vw, 72px);
+}
+
+.cordiant-adapt-carousel__head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.cordiant-adapt-carousel__viewport {
+  overflow: hidden;
+  outline: none;
+}
+
+.cordiant-adapt-carousel .cordiant-adapt__cards {
+  margin-top: 0;
+  display: flex;
+  gap: 0;
+  width: 100%;
+  transform: translateX(0);
+}
+
+.cordiant-adapt-carousel .cordiant-adapt-card {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.cordiant-adapt-carousel__pagination {
+  margin-top: 18px;
+}
+
+/* — Adapt cards — */
 .cordiant-adapt__cards {
   margin-top: clamp(54px, 5vw, 72px);
   display: grid;
