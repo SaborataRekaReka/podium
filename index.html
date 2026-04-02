@@ -57,7 +57,7 @@
     <main id="main-content">
       <section class="section cordiant-hero" id="hero" aria-label="Первый экран Cordiant">
         <div class="cordiant-hero__container">
-          <header class="cordiant-hero__header">
+          <header class="cordiant-hero__header" data-reveal="fade" style="--reveal-delay: 100ms">
             <div class="cordiant-hero__logo">
               <img src="assets/icons/logo-brand.svg" alt="Cordiant" width="164" height="32" loading="eager" />
             </div>
@@ -106,12 +106,12 @@
           </aside>
 
           <div class="cordiant-hero__content">
-            <p class="cordiant-hero__subtitle">Выкатываются 3 шины</p>
-            <h1 class="cordiant-hero__title">
+            <p class="cordiant-hero__subtitle" data-reveal="fade" style="--reveal-delay: 200ms">Выкатываются 3 шины</p>
+            <h1 class="cordiant-hero__title" data-reveal style="--reveal-delay: 350ms">
               <span class="cordiant-hero__title-major">На подиуме шины Cordiant</span>
             </h1>
 
-            <a class="cordiant-hero__more" href="#about">Подробнее</a>
+            <a class="cordiant-hero__more" href="#about" data-reveal="scale" style="--reveal-delay: 550ms">Подробнее</a>
           </div>
 
           <p class="cordiant-hero__legal">Реклама, АО "Кордиант", ИНН 7601001509</p>
@@ -120,7 +120,7 @@
 
       <section class="section section--brand" id="about">
         <div class="container">
-          <article class="milestones-screen" data-reveal>
+          <article class="milestones-screen" data-reveal="zoom">
             <div class="milestones-screen__inner">
               <nav class="milestones-tabs" data-tab-group="brand-story" role="tablist" aria-label="Разделы о бренде">
                 <button class="milestones-tab is-active" type="button" role="tab" aria-selected="true" data-tab="brand">
@@ -169,11 +169,11 @@
       <section class="section section--summer-podium" id="summer">
         <div class="container">
           <div class="summer-podium" data-reveal>
-            <h2 class="section-heading">Идеально для лета</h2>
-            <p class="summer-podium__intro">
+            <h2 class="section-heading" data-reveal="left">Идеально для лета</h2>
+            <p class="summer-podium__intro" data-reveal style="--reveal-delay: 100ms">
               Актуальная линейка летних легковых шин Cordiant представлена восьмью моделями, каждая из которых разработана для определенных условий эксплуатации и стиля вождения.
             </p>
-            <p class="summer-podium__intro summer-podium__intro--secondary summer-podium__intro--body">
+            <p class="summer-podium__intro summer-podium__intro--secondary summer-podium__intro--body" data-reveal style="--reveal-delay: 180ms">
               Модели Cordiant Gravity и Gravity SUV, Cordiant Run Tour, Cordiant Comfort 2, Cordiant Sport 3, Cordiant Road Runner предназначены для легковых автомобилей, передвигающихся по городу и трассам, Cordiant Off Road, Cordiant Off Road 2, Cordiant All Terrain – для внедорожников, наибольшую эффективность демонстрируют на неустойчивых и скользких грунтовых поверхностях. Как следствие, в широком модельном ряду шин Cordiant каждый клиент может найти шины, подходящие как для его стиля вождения, так и для различных условий эксплуатации. Повышенным спросом пользуются такие новинки, как Cordiant Run Tour (2025), Cordiant Gravity, Gravity SUV (2023 год), а также хорошо известная всем модель Cordiant Comfort 2.
             </p>
           </div>
@@ -182,10 +182,10 @@
         <!-- Tire Showcase Grid -->
         <div class="tire-showcase" data-tire-showcase>
           <div class="container">
-            <div class="tire-showcase__grid">
+            <div class="tire-showcase__grid" data-reveal-stagger>
 
               <!-- Run Tour -->
-              <article class="tire-showcase__card" data-tire-card>
+              <article class="tire-showcase__card" data-tire-card data-reveal>
                 <div class="tire-showcase__visual">
                   <img src="assets/img/tires/drive-download-20260325T105614Z-1-001/RunTour.jpg" alt="Cordiant Run Tour на автомобиле" loading="lazy">
                   <div class="tire-showcase__badge">Топливная экономичность</div>
@@ -221,7 +221,7 @@
               </article>
 
               <!-- Gravity -->
-              <article class="tire-showcase__card" data-tire-card>
+              <article class="tire-showcase__card" data-tire-card data-reveal>
                 <div class="tire-showcase__visual">
                   <img src="assets/img/tires/drive-download-20260325T105614Z-1-001/Gravity.jpg" alt="Cordiant Gravity на автомобиле" loading="lazy">
                   <div class="tire-showcase__badge tire-showcase__badge--accent">Увеличенная ходимость</div>
@@ -261,7 +261,7 @@
               </article>
 
               <!-- Comfort 2 -->
-              <article class="tire-showcase__card" data-tire-card>
+              <article class="tire-showcase__card" data-tire-card data-reveal>
                 <div class="tire-showcase__visual">
                   <img src="assets/img/tires/drive-download-20260325T105614Z-1-001/Comfort2.jpg" alt="Cordiant Comfort 2 на автомобиле" loading="lazy">
                   <div class="tire-showcase__badge">Максимальный комфорт</div>
@@ -314,7 +314,7 @@
       </section>
 
       <section class="section cordiant-accordion" id="technologies-accordion">
-        <div class="cordiant-accordion__container" data-reveal>
+        <div class="cordiant-accordion__container" data-reveal="zoom">
           <h2 class="section-heading cordiant-accordion__title">Технологии</h2>
 
           <div class="cordiant-accordion-carousel" data-cordiant-accordion-carousel-root>
@@ -352,7 +352,7 @@
       <section class="section cordiant-adapt" id="russia">
         <div class="cordiant-adapt__container" data-cordiant-adapt data-reveal>
           <div class="cordiant-adapt__top">
-            <div class="cordiant-adapt__intro" data-reveal>
+            <div class="cordiant-adapt__intro" data-reveal="left">
               <h2 class="section-heading cordiant-adapt__title">
                 Приспособленность к российским
                 <br />
@@ -370,7 +370,7 @@
               </ul>
             </div>
 
-            <figure class="cordiant-adapt__visual" data-reveal>
+            <figure class="cordiant-adapt__visual" data-reveal="right">
               <img src="assets/img/hero/Подиум Кордиант 2026/4 блок/российские-дороги.jpg" alt="Российские дороги и условия эксплуатации шин Cordiant" loading="lazy" />
             </figure>
           </div>
@@ -383,8 +383,8 @@
               </div>
             </div>
 
-            <div class="cordiant-adapt-carousel__viewport" data-cordiant-adapt-viewport tabindex="0" aria-label="Карусель адаптации к российским условиям" data-reveal>
-              <div class="cordiant-adapt__cards" data-cordiant-adapt-track>
+            <div class="cordiant-adapt-carousel__viewport" data-cordiant-adapt-viewport tabindex="0" aria-label="Карусель адаптации к российским условиям" data-reveal="scale">
+              <div class="cordiant-adapt__cards" data-cordiant-adapt-track data-reveal-stagger="fast">
                 <article class="cordiant-adapt-card" data-reveal>
                   <h3 class="cordiant-adapt-card__title">Состав</h3>
                   <p class="cordiant-adapt-card__text">
@@ -422,7 +422,7 @@
 
       <section class="section cordiant-tech" id="technologies">
         <div class="cordiant-tech__container">
-          <div class="cordiant-tech__intro" data-reveal>
+          <div class="cordiant-tech__intro" data-reveal="left">
             <h2 class="section-heading">Из чего сделаны шины Cordiant</h2>
             <p class="cordiant-tech__lead">
               Для изготовления шин Cordiant используются самые передовые материалы и компоненты. Резиновая смесь летних шин создается на основе кремний-содержащих полимеров, которые улучшают сцепление с мокрой дорогой.
@@ -432,7 +432,7 @@
             </p>
           </div>
 
-          <div class="cordiant-tech__slider-head" data-reveal>
+          <div class="cordiant-tech__slider-head" data-reveal="fade" style="--reveal-delay: 100ms">
             <div class="cordiant-tech__label">ТЕХНОЛОГИИ ШИН</div>
             <div class="cordiant-tech__nav" aria-label="Управление слайдером технологий шин">
               <button class="cordiant-tech__nav-btn" type="button" data-cordiant-tech-prev aria-label="Предыдущий слайд"></button>
@@ -440,7 +440,7 @@
             </div>
           </div>
 
-          <div class="cordiant-tech__viewport" data-cordiant-tech-viewport tabindex="0" aria-label="Слайдер технологий шин Cordiant" data-reveal>
+          <div class="cordiant-tech__viewport" data-cordiant-tech-viewport tabindex="0" aria-label="Слайдер технологий шин Cordiant" data-reveal="scale" style="--reveal-delay: 180ms">
             <div class="cordiant-tech__track" data-cordiant-tech-track></div>
           </div>
 
@@ -450,14 +450,14 @@
 
       <section class="section section--reasons" id="reasons">
         <div class="container">
-          <div class="reasons-carousel__head" data-reveal>
+          <div class="reasons-carousel__head" data-reveal="left">
             <h2 class="section-heading">Пять причин купить<br />шины Cordiant</h2>
             <div class="reasons-carousel__nav carousel-controls" aria-label="Управление каруселью">
               <button class="carousel-btn reasons-carousel__btn" type="button" data-reasons-prev aria-label="Предыдущий слайд">←</button>
               <button class="carousel-btn reasons-carousel__btn" type="button" data-reasons-next aria-label="Следующий слайд">→</button>
             </div>
           </div>
-          <div class="reasons-carousel__viewport" data-reasons-viewport tabindex="0" aria-label="Карусель: пять причин купить шины Cordiant" data-reveal>
+          <div class="reasons-carousel__viewport" data-reasons-viewport tabindex="0" aria-label="Карусель: пять причин купить шины Cordiant" data-reveal="scale" style="--reveal-delay: 120ms">
             <div class="reasons-grid" id="reasons-grid"></div>
           </div>
           <div class="reasons-carousel__pagination" data-reasons-pagination aria-label="Пагинация карусели: пять причин купить"></div>
@@ -466,12 +466,12 @@
 
       <section class="section section--quiz-blue" id="quiz">
         <div class="container">
-          <div class="section-head" data-reveal>
+          <div class="section-head" data-reveal="zoom">
             <h2 class="section-heading">История успеха</h2>
             <p>Ответьте на вопросы и проверьте, насколько хорошо вы знаете ключевые технологии и модели линейки. Среди участников, правильно ответивших на максимальное число вопросов, будут разыграны классные беспроводные наушники</p>
           </div>
 
-          <article class="quiz-card quiz-gradient-copy" data-reveal>
+          <article class="quiz-card quiz-gradient-copy" data-reveal="scale" style="--reveal-delay: 150ms">
             <div class="quiz-layout">
               <div class="quiz-layout__main">
                 <header class="quiz-card__header">
