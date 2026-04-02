@@ -16,7 +16,8 @@ while ((match = attrPattern.exec(html)) !== null) {
 
 const missing = [];
 for (const ref of refs) {
-  const normalized = ref.startsWith('/') ? ref.slice(1) : ref;
+  const withoutQuery = ref.split('?')[0].split('#')[0];
+  const normalized = withoutQuery.startsWith('/') ? withoutQuery.slice(1) : withoutQuery;
   let decoded = normalized;
   try { decoded = decodeURIComponent(normalized); } catch {}
   const full = resolve(dirname(htmlPath), decoded);
