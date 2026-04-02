@@ -1192,6 +1192,27 @@
   const setupSpy = () => { const secs = secIds.map((id) => document.getElementById(id)).filter((n) => n instanceof HTMLElement); const links = Array.from(document.querySelectorAll("a[data-spy]")); if (!secs.length || !links.length) return; const setA = (id) => links.forEach((l) => l.classList.toggle("is-active", l.getAttribute("href") === `#${id}`)); const spy = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) setA(en.target.id); }), { rootMargin: "-45% 0px -45% 0px", threshold: 0 }); secs.forEach((s) => spy.observe(s)); };
   const setupReveal = () => { const nodes = Array.from(document.querySelectorAll("[data-reveal]")); if (!nodes.length) return; if (rdm() || !("IntersectionObserver" in window)) { nodes.forEach((n) => n.classList.add("is-visible")); return; } const ob = new IntersectionObserver((es, o) => es.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("is-visible"); o.unobserve(en.target); } }), { threshold: 0.16 }); nodes.forEach((n) => ob.observe(n)); };
   const setupLazy = () => { const imgs = Array.from(document.querySelectorAll("img[data-src]")); if (!imgs.length) return; const load = (i) => { const s = i.getAttribute("data-src"); if (!s) return; i.src = s; i.removeAttribute("data-src"); }; if (!("IntersectionObserver" in window)) { imgs.forEach(load); return; } const ob = new IntersectionObserver((es, o) => es.forEach((en) => { if (en.isIntersecting) { load(en.target); o.unobserve(en.target); } }), { rootMargin: "120px 0px" }); imgs.forEach((i) => ob.observe(i)); };
+  const setupEridLinks = () => {
+    const eridValue = "2W5zFHoYGUH";
+    const currentUrl = new URL(window.location.href);
+    const anchors = Array.from(document.querySelectorAll("a[href]"));
+    anchors.forEach((anchor) => {
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+      const rawHref = (anchor.getAttribute("href") || "").trim();
+      if (!rawHref || rawHref.startsWith("#") || rawHref.startsWith("mailto:") || rawHref.startsWith("tel:") || rawHref.startsWith("javascript:")) return;
+      let parsedUrl;
+      try {
+        parsedUrl = new URL(rawHref, currentUrl.href);
+      } catch {
+        return;
+      }
+      if (parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:") return;
+      const isSamePage = parsedUrl.origin === currentUrl.origin && parsedUrl.pathname === currentUrl.pathname;
+      if (isSamePage) return;
+      parsedUrl.searchParams.set("erid", eridValue);
+      anchor.setAttribute("href", parsedUrl.toString());
+    });
+  };
   const initCordiantAdaptTooltips = (container) => {
     if (!(container instanceof HTMLElement)) return;
     const wraps = Array.from(container.querySelectorAll("[data-cordiant-adapt-hotspot-wrap]"));
@@ -3068,6 +3089,7 @@
   setupSpy();
   setupReveal();
   setupLazy();
+  setupEridLinks();
   setupMaterialHotspots();
   setupCordiantTechMore();
   setupCordiantAdapt();
