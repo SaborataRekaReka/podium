@@ -195,7 +195,7 @@
     {
       key: "gravity",
       title: "Cordiant Gravity",
-      text: "Технология DRY-COR, примененная в Cordiant Gravity, улучшает характеристики на сухих дорогах.",
+      text: "Основной технологией Cordiant Gravity является LONG-COR.",
       image: "assets/img/tires/cordiant-gravity.png",
       watermark: "Gravity"
     },
@@ -270,15 +270,15 @@
     "run-tour": {
       silica: {
         label: "ST-корд",
-        description: "В Cordiant Run Tour применен корд сверхвысокой прочности ST (Super high Tensile), повышающий ударостойкость на неровных дорогах, и расширенные слои каркаса."
+        description: "В Cordiant Run Tour применен корд сверхвысокой прочности ST (Super high Tensile), повышающий ударостойкость на неровных дорогах, и уширенные слои каркаса в боковине, которые обеспечивают дополнительную защиту от боковых порезов и ударов при наезде на бордюры или выбоины."
       },
       dssk: {
         label: "Нейлоновый бандаж",
-        description: "Два слоя резины в боковине обеспечивают дополнительную защиту от боковых порезов и ударов при наезде на бордюры или выбоины. За защиту протекторной области от проколов отвечает усиленный нейлоновый бандаж."
+        description: "За защиту протекторной области от проколов отвечает усиленный нейлоновый бандаж. Симметрично направленный рисунок обеспечивает стабильность на прямой и предсказуемое поведение в поворотах."
       },
       carbonates: {
         label: "Дренажные канавки",
-        description: "Симметрично направленный рисунок обеспечивает стабильность на прямой и предсказуемое поведение в поворотах. Диагональные канавки, расположенные под острым углом к направлению движения, уменьшают деформацию протектора и сокращают длину тормозного пути на мокрой дороге. Глубокие и широкие дренажные каналы эффективно отводят воду из пятна контакта, снижая риск аквапланирования."
+        description: "Глубокие и широкие дренажные каналы эффективно отводят воду из пятна контакта, снижая риск аквапланирования."
       },
       polymers: {
         label: "Ротация и равномерный износ",
@@ -287,40 +287,41 @@
     },
     gravity: {
       silica: {
-        label: "DRY-COR",
-        description: "Технология DRY-COR, примененная в Cordiant Gravity, улучшает характеристики на сухих дорогах. Жесткие шашечные элементы плечевых ребер не дают шине деформироваться в повороте, сохраняя стабильность пятна контакта и сцепления с дорогой, предотвращая сносы и заносы."
+        label: "LONG-COR",
+        description: "LONG-COR обеспечивает увеличение срока эксплуатации шины: резиновая смесь с большим содержанием высокоактивного техуглерода, увеличенная глубина протектора на 12% и оптимизированный профиль повышают износостойкость с сохранением других свойств шины и позволяют проехать больше километров на одном комплекте."
       },
       dssk: {
-        label: "LONG-COR",
-        description: "На двух центральных ребрах предусмотрены скосы, за счет которых увеличивается количество граней зацепления при движении на мягких грунтах и грунтовой дороге. Такое ноу-хау, как LONG-COR, работает на износоустойчивость резинового состава без ущерба остальным характеристикам. Долговечность повышена за счет увеличения глубины протектора на 12%."
+        label: "DRY-COR",
+        description: "Технология DRY-COR отвечает за характеристики на сухих дорогах. Шашечные элементы внешнего ребра соединены сплошным ребром, а шашки внутреннего ребра соединены в виде полумостов и не дают шине деформироваться в повороте, сохраняя стабильность пятна контакта и сцепления с дорогой, предотвращая сносы и заносы."
       },
       carbonates: {
-        label: "WET-COR",
-        description: "Технология WET-COR, представленная эффективной дренажной системой, состоящей из широких продольных канавок, а также многочисленных Z-образных кривых отвечает за предсказуемое поведение на мокрой дороге и уверенное торможение."
-      },
-      polymers: {
         label: "Акустический комфорт",
         description: "Восьмишаговое комбинирование блоков протектора в шине Cordiant Gravity обеспечивает акустический комфорт, сравнимый с премиальными брендами (69 дБ)."
+      },
+      polymers: {
+        label: "WET-COR",
+        description: "Технология WET-COR, представленная эффективной дренажной системой, состоящей из широких продольных канавок, а также многочисленных Z-образных кривых отвечает за предсказуемое поведение на мокрой дороге и уверенное торможение."
       }
     },
     "gravity-suv": {
       silica: {
-        label: "STONE-COR",
-        description: "Конструктивно модель Cordiant Gravity SUV во многом повторяет Cordiant Gravity. Эта шина разработана специально для кроссоверов и внедорожников и адаптирована для российских условий эксплуатации, включая городские дороги и проселочные пути. Ее отличительная особенность - технология STONE-COR. За счет скосов на двух центральных ребрах увеличено количество граней зацепления при движении на мягких грунтах и гравийных дорогах."
+        label: "Адаптация",
+        description: "Эта шина разработана специально для кроссоверов и внедорожников и адаптирована для российских условий эксплуатации, включая городские дороги и проселочные пути."
       },
       dssk: {
-        label: "Усиленный каркас",
-        description: "Усиленный силовой каркас адаптирован для работы в сложных условиях, позволяет выдерживать значительные механические нагрузки на разрыв и растяжение."
+        label: "STONE-COR",
+        description: "Ее отличительная особенность — технология STONE-COR. За счет скосов на двух центральных ребрах увеличено количество граней зацепления при движении на мягких грунтах и гравийных дорогах."
       },
       carbonates: {
-        label: "WET-COR",
-        description: "Центральные канавки протектора оборудованы специальными камневыталкивающими шипами для быстрого самоочищения протектора от камней."
-      },
-      polymers: {
-        label: "Асимметричный протектор",
-        description: "Асимметричный ненаправленный протектор обеспечивает эффективное сцепление с дорогой."
+        label: "Камневыталкивающие элементы",
+        description: "Центральные канавки протектора оборудованы специальными камневыталкивающими элементами для защиты протектора и быстрого самоочищения пятна контакта от камней."
       }
     },
+  };
+  const CORDIANT_TECH_HOTSPOT_IDS_BY_SLIDE = {
+    "run-tour": ["silica", "dssk", "carbonates", "polymers"],
+    gravity: ["silica", "dssk", "carbonates", "polymers"],
+    "gravity-suv": ["silica", "dssk", "carbonates"]
   };
   const CORDIANT_ACCORDION_ITEMS = [
     {
@@ -1403,49 +1404,46 @@
       if (window.innerWidth <= 980) return 2;
       return 3;
     };
-    let visibleCount = getVisibleCount();
-    let activePage = 0;
-    let pages = 1;
-    const getPages = () => Math.max(1, Math.ceil(total / visibleCount));
+    const getMaxStart = () => Math.max(0, total - getVisibleCount());
+    let activeStart = 0;
+    let maxStart = getMaxStart();
     const renderPagination = () => {
-      pages = getPages();
-      pagination.innerHTML = Array.from({ length: pages }, (_, i) => (
-        `<button class="reasons-carousel__dot" type="button" data-cordiant-adapt-dot="${i}" aria-label="Показать страницу ${i + 1}"></button>`
+      pagination.innerHTML = Array.from({ length: maxStart + 1 }, (_, i) => (
+        `<button class="reasons-carousel__dot" type="button" data-cordiant-adapt-dot="${i}" aria-label="Показать слайд ${i + 1}"></button>`
       )).join("");
     };
     const sync = (animate = true, shouldRenderPagination = false) => {
-      visibleCount = getVisibleCount();
-      const nextPages = getPages();
-      if (shouldRenderPagination || nextPages !== pages) {
+      const nextMaxStart = getMaxStart();
+      if (shouldRenderPagination || nextMaxStart !== maxStart) {
+        maxStart = nextMaxStart;
         renderPagination();
       }
-      activePage = Math.max(0, Math.min(activePage, pages - 1));
-      const startIndex = Math.min(total - 1, activePage * visibleCount);
-      const target = slides[startIndex];
+      activeStart = maxStart > 0 ? ((activeStart % (maxStart + 1)) + (maxStart + 1)) % (maxStart + 1) : 0;
+      const target = slides[Math.min(total - 1, activeStart)];
       track.style.transition = animate && !rdm() ? "transform 420ms ease" : "none";
       track.style.transform = `translateX(${-((target instanceof HTMLElement) ? target.offsetLeft : 0)}px)`;
       pagination.querySelectorAll("[data-cordiant-adapt-dot]").forEach((button, index) => {
-        const isActive = index === activePage;
+        const isActive = index === activeStart;
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-current", isActive ? "true" : "false");
       });
       prev.disabled = false;
       next.disabled = false;
     };
-    const goTo = (page, animate = true) => {
-      activePage = ((page % pages) + pages) % pages;
+    const goTo = (startIndex, animate = true) => {
+      activeStart = maxStart > 0 ? ((startIndex % (maxStart + 1)) + (maxStart + 1)) % (maxStart + 1) : 0;
       sync(animate);
     };
-    prev.addEventListener("click", () => goTo(activePage - 1));
-    next.addEventListener("click", () => goTo(activePage + 1));
+    prev.addEventListener("click", () => goTo(activeStart - 1));
+    next.addEventListener("click", () => goTo(activeStart + 1));
     pagination.addEventListener("click", (event) => {
       const button = event.target.closest("[data-cordiant-adapt-dot]");
       if (!(button instanceof HTMLButtonElement)) return;
-      const page = Number(button.getAttribute("data-cordiant-adapt-dot"));
-      if (!Number.isFinite(page)) return;
-      goTo(page);
+      const startIndex = Number(button.getAttribute("data-cordiant-adapt-dot"));
+      if (!Number.isFinite(startIndex)) return;
+      goTo(startIndex);
     });
-    setupHorizontalArrowNavigation(viewport, () => goTo(activePage - 1), () => goTo(activePage + 1));
+    setupHorizontalArrowNavigation(viewport, () => goTo(activeStart - 1), () => goTo(activeStart + 1));
     window.addEventListener("resize", () => sync(false, true), { passive: true });
     sync(false, true);
   };
@@ -1592,13 +1590,17 @@
       ];
     };
     const renderHotspotOverlay = (slideKey) => {
-      const lines = hotspotModel.items.map((item) => {
+      const hotspotIds = Array.isArray(CORDIANT_TECH_HOTSPOT_IDS_BY_SLIDE?.[slideKey])
+        ? CORDIANT_TECH_HOTSPOT_IDS_BY_SLIDE[slideKey].filter((id) => hotspotMap.has(id))
+        : hotspotModel.items.map((item) => item.id);
+      const slideHotspots = hotspotIds.map((id) => hotspotMap.get(id)).filter(Boolean);
+      const lines = slideHotspots.map((item) => {
         const points = routeToPoints(item.route);
         return `
           <polyline class="cordiant-tech-overlay-lines__path" data-cordiant-tech-line="${item.id}" points="${points}"></polyline>
         `;
       }).join("");
-      const hotspots = hotspotModel.items.map((item) => `
+      const hotspots = slideHotspots.map((item) => `
         <button
           class="cordiant-tech-hotspot"
           type="button"
@@ -1694,16 +1696,15 @@
       let lockedHotspotId = null;
       const getCurrentHotspotId = () => lockedHotspotId || activeHotspotId;
       const updateCardContent = (hotspotId) => {
+        titleNode.textContent = defaultTitle;
         if (!hotspotId) {
-          titleNode.textContent = defaultTitle;
           textNode.textContent = defaultText;
           card.classList.remove("cordiant-tech-card--content-hotspot");
           return;
         }
         const hotspot = resolveHotspotContent(slideKey, hotspotId);
         if (!hotspot.label && !hotspot.description) return;
-        titleNode.textContent = hotspot.label;
-        textNode.textContent = hotspot.description;
+        textNode.textContent = hotspot.description || defaultText;
         card.classList.add("cordiant-tech-card--content-hotspot");
       };
       const applyHotspotState = () => {
