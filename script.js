@@ -1222,13 +1222,11 @@
       modal.hidden = false;
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("cookie-consent-open");
     };
     const closeModal = () => {
       modal.classList.remove("is-open");
       modal.hidden = true;
       modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("cookie-consent-open");
     };
     let isAccepted = false;
     try {

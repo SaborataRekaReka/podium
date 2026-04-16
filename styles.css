@@ -357,10 +357,6 @@ body.menu-open {
   overflow: hidden;
 }
 
-body.cookie-consent-open {
-  overflow: hidden;
-}
-
 .cordiant-hero__quiz {
   border: 0;
   background: #fff;
@@ -4629,8 +4625,17 @@ input {
   gap: 14px;
 }
 
+.cookie-consent-modal {
+  inset: auto 16px 16px 16px;
+  display: block;
+  padding: 0;
+  background: transparent;
+}
+
 .cookie-consent-modal .modal__dialog {
-  width: min(100%, 620px);
+  margin-inline: auto;
+  width: min(100%, 760px);
+  max-height: none;
   gap: 16px;
 }
 
