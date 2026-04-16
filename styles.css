@@ -357,6 +357,10 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.cookie-consent-open {
+  overflow: hidden;
+}
+
 .cordiant-hero__quiz {
   border: 0;
   background: #fff;
@@ -4623,6 +4627,48 @@ input {
   box-shadow: 0 24px 48px rgba(8, 34, 56, 0.28);
   display: grid;
   gap: 14px;
+}
+
+.cookie-consent-modal .modal__dialog {
+  width: min(100%, 620px);
+  gap: 16px;
+}
+
+.cookie-consent-modal__text {
+  margin: 0;
+  color: #2a3b4a;
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+.cookie-consent-modal__policy {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-consent-modal__policy:hover {
+  color: #0c6a9f;
+}
+
+.cookie-consent-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cookie-consent-modal__accept {
+  min-width: 148px;
+}
+
+@media (max-width: 600px) {
+  .cookie-consent-modal__actions {
+    justify-content: stretch;
+  }
+
+  .cookie-consent-modal__accept {
+    width: 100%;
+  }
 }
 
 .modal__close {

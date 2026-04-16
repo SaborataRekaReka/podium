@@ -1213,6 +1213,39 @@
       anchor.setAttribute("href", parsedUrl.toString());
     });
   };
+  const setupCookieConsent = () => {
+    const modal = document.querySelector("[data-cookie-consent-modal]");
+    const acceptButton = document.querySelector("[data-cookie-consent-accept]");
+    if (!(modal instanceof HTMLElement) || !(acceptButton instanceof HTMLButtonElement)) return;
+    const storageKey = "podium-cookie-consent-accepted";
+    const openModal = () => {
+      modal.hidden = false;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("cookie-consent-open");
+    };
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("cookie-consent-open");
+    };
+    let isAccepted = false;
+    try {
+      isAccepted = window.localStorage.getItem(storageKey) === "1";
+    } catch {
+      isAccepted = false;
+    }
+    if (!isAccepted) openModal();
+    acceptButton.addEventListener("click", () => {
+      try {
+        window.localStorage.setItem(storageKey, "1");
+      } catch {
+        // Ignore storage errors and still close modal for current session.
+      }
+      closeModal();
+    });
+  };
   const initCordiantAdaptTooltips = (container) => {
     if (!(container instanceof HTMLElement)) return;
     const wraps = Array.from(container.querySelectorAll("[data-cordiant-adapt-hotspot-wrap]"));
@@ -3090,6 +3123,7 @@
   setupReveal();
   setupLazy();
   setupEridLinks();
+  setupCookieConsent();
   setupMaterialHotspots();
   setupCordiantTechMore();
   setupCordiantAdapt();
