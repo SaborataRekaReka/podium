@@ -1859,22 +1859,6 @@ input {
   color: rgba(255, 255, 255, 0.95);
 }
 
-.quiz-result__rules {
-  margin: 6px 0 0;
-  color: rgba(228, 244, 255, 0.95);
-}
-
-.quiz-result__rules-link {
-  color: #fff;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.quiz-result__rules-link:hover {
-  color: #d4ecff;
-}
-
 .quiz-result__form-wrap {
   margin-top: 6px;
   padding: clamp(12px, 1.8vw, 16px);
