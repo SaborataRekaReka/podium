@@ -1915,6 +1915,45 @@ input {
   background: rgba(8, 63, 99, 0.84);
 }
 
+.quiz-result__consents {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-result__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(234, 246, 255, 0.96);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+.quiz-result__consent-input {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  flex: 0 0 auto;
+  accent-color: #8fdcff;
+}
+
+.quiz-result__consent-input:focus-visible {
+  outline: 2px solid rgba(226, 244, 255, 0.92);
+  outline-offset: 2px;
+}
+
+.quiz-result__consent-text a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quiz-result__consent-text a:hover {
+  color: rgba(217, 241, 255, 0.96);
+}
+
 .quiz-result__submit {
   grid-column: 1 / -1;
   justify-self: start;

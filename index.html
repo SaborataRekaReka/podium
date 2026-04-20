@@ -564,6 +564,29 @@
                         <span class="quiz-result__label">Электронный адрес</span>
                         <input class="quiz-result__input" type="email" name="email" autocomplete="email" placeholder="name@example.com" spellcheck="false" required />
                       </label>
+                      <div class="quiz-result__consents">
+                        <label class="quiz-result__consent">
+                          <input class="quiz-result__consent-input" type="checkbox" name="consentDocuments" required />
+                          <span class="quiz-result__consent-text">
+                            Я, ознакомлен с Правилами обработки персональных данных и иными документами, регламентирующими работу сайта:
+                            <a href="https://autogoda.ru/processing_rules/polzovatelskoe-soglashenie.php" target="_blank" rel="noopener noreferrer">AutoGoda.ru Пользовательское соглашение</a>,
+                            <a href="https://autogoda.ru/processing_rules/politika-obrabotki-pd.php" target="_blank" rel="noopener noreferrer">Политика обработки персональных данных</a>,
+                            <a href="https://autogoda.ru/processing_rules/politika-cookies.php" target="_blank" rel="noopener noreferrer">Политика Cookies</a>,
+                            <a href="https://autogoda.ru/processing_rules/soglasie-na-obrabotku.php" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a>.
+                          </span>
+                        </label>
+                        <label class="quiz-result__consent">
+                          <input class="quiz-result__consent-input" type="checkbox" name="consentCompany" required />
+                          <span class="quiz-result__consent-text">Я даю компании ООО «Премия АГ» свое добровольное согласие на получение и обработку моих персональных данных.</span>
+                        </label>
+                        <label class="quiz-result__consent">
+                          <input class="quiz-result__consent-input" type="checkbox" name="consentMailing" required />
+                          <span class="quiz-result__consent-text">
+                            Я даю согласие на получение e-mail рассылки согласно
+                            <a href="https://autogoda.ru/processing_rules/polzovatelskoe-soglashenie.php" target="_blank" rel="noopener noreferrer">«Пользовательскому соглашению»</a>.
+                          </span>
+                        </label>
+                      </div>
                       <button class="quiz-result__submit" type="submit">Отправить</button>
                     </form>
                   </div>
@@ -633,11 +656,10 @@
 
     <div class="modal cookie-consent-modal" data-cookie-consent-modal role="dialog" aria-modal="false" aria-label="Согласие на использование cookie" aria-hidden="true" hidden>
       <div class="modal__dialog">
-        <p class="cookie-consent-modal__text">Мы используем файлы cookie, чтобы обеспечивать правильную работу нашего веб-сайта и анализировать сетевой трафик.</p>
-        <a class="cookie-consent-modal__policy" href="https://autogoda.ru/processing_rules/" target="_blank" rel="noopener noreferrer">Согласие на обработку и политика в отношении персональных данных</a>
-        <a class="cookie-consent-modal__policy" href="assets/docs/quiz-rules-podium-cordiant-2026.docx" download>Правила квиза «Подиум Кордиант 2026»</a>
+        <p class="cookie-consent-modal__text">На нашем сайте используются cookie-файлы, в том числе сервис веб-аналитики Яндекс Метрика. Используя сайт, вы соглашаетесь на обработку данных при помощи cookies.</p>
+        <a class="cookie-consent-modal__policy" href="https://autogoda.ru/processing_rules/politika-cookies.php" target="_blank" rel="noopener noreferrer">Политика Cookies</a>
         <div class="cookie-consent-modal__actions">
-          <button class="btn btn-primary cookie-consent-modal__accept" type="button" data-cookie-consent-accept>Принять</button>
+          <button class="btn btn-primary cookie-consent-modal__accept" type="button" data-cookie-consent-accept>ПРИНЯТЬ</button>
         </div>
       </div>
     </div>
